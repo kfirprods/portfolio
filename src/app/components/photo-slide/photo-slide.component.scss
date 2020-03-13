@@ -17,35 +17,25 @@
 }
 
 .dot svg {
-  width: 1em;
-  height: 1em;
-
-  @media #{$mobile_device} {
-    width: 2em;
-    height: 2em;
-  }
-
-  @media #{$tablet_device} {
-    width: 2em;
-    height: 2em;
-  }
+  width: 2em;
+  height: 2em;
 }
 
 .dot circle {
-  fill: #444;
-  stroke: white;
-  stroke-width: 0.5px;
+  fill: #000;
   opacity: 0.75;
 
-  &:hover {
-    opacity: 1;
-    fill: #333;
+  /* hover */
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      opacity: 1;
+      fill: #666;
+    }
   }
 
   &:active,
   &.current-dot {
     fill: white;
-    stroke: #444;
   }
 }
 
@@ -61,10 +51,4 @@
   bottom: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  width: 0%;
-
-  -webkit-transition: width 1s ease-in-out;
-  -moz-transition: width 1s ease-in-out;
-  -o-transition: width 1s ease-in-out;
-  transition: width 1s ease-in-out;
 }

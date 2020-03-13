@@ -53,12 +53,18 @@
 }
 
 .main-info ul {
-  list-style: none;
+  list-style-type: '— ';
 }
 
 .main-info-content {
   color: white;
   filter: none;
+}
+
+.main-info-content h1 {
+  @media #{$large_device} {
+    font-size: 2em;
+  }
 }
 
 .centered-container {
@@ -84,10 +90,4 @@
 
 .portfolio .portfolio-cards-container {
   margin: 30px 30px 0px 30px;
-}
-
-.portfolio .card {
-  @media #{$large_device} {
-    max-width: 700px;
-  }
 }

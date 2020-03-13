@@ -9,6 +9,5 @@
     </div>
   </div>
 
-  <div class="timer" [ngStyle]="'width: 100px;'">
-  </div>
+  <div class="timer" [@photoLoaded]="{value: isLoadingNextImage ? 'start' : 'end', params: {duration: interval}}" (@photoLoaded.done)="reanimate($event)"></div>
 </div>
