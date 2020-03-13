@@ -1,0 +1,14 @@
+<div class="container">
+  <img class="current-image" [src]="currentImage">
+
+  <div class="dots-container">
+    <div class="dot" *ngFor="let image of images">
+      <svg (click)="changeCurrentImage(image)" viewBox="0 0 8 8">
+        <circle [ngClass]="currentImage === image ? 'current-dot' : ''" cx="4" cy="4" r="3" />
+      </svg>
+    </div>
+  </div>
+
+  <div class="timer" [ngStyle]="'width: 100px;'">
+  </div>
+</div>

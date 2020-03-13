@@ -1,0 +1,93 @@
+@import "scss/responsive";
+@import "scss/cards";
+
+.container {
+  direction: ltr;
+}
+
+.page {
+  padding: 20px 0px;
+  min-height: 900px;
+
+  @media #{$mobile_device} {
+    min-height: 500px;
+  }
+  @media #{$tablet_device} {
+    min-height: 620px;
+  }
+}
+
+.page .page-title-container {
+  text-align: center;
+}
+
+.page .page-title {
+  font-weight: 300;
+  letter-spacing: 3px;
+  color: #001d38;
+}
+
+.main-info {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url("../assets/img/background-large.jpg");
+    background-size: cover;
+    filter: brightness(0.5);
+
+    @media #{$mobile_device} {
+      background-image: url("../assets/img/background-phone-landscape.jpg");
+    }
+
+    @media #{$tablet_device} {
+      background-image: url("../assets/img/background-tablet.jpg");
+    }
+  }
+}
+
+.main-info ul {
+  list-style: none;
+}
+
+.main-info-content {
+  color: white;
+  filter: none;
+}
+
+.centered-container {
+  margin: 0 auto;
+}
+
+.experience {
+  color: #2c2c2c;
+}
+
+.experience .experience-cards-container {
+  margin: 30px 30px 0px 30px;
+}
+
+.portfolio {
+  background-color: #aaa;
+  color: white;
+}
+
+.portfolio .page-title {
+  color: white;
+}
+
+.portfolio .portfolio-cards-container {
+  margin: 30px 30px 0px 30px;
+}
+
+.portfolio .card {
+  @media #{$large_device} {
+    max-width: 700px;
+  }
+}

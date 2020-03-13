@@ -1,0 +1,70 @@
+@import "../../scss/responsive";
+
+.container {
+  position: relative;
+}
+
+.dots-container {
+  position: absolute;
+  bottom: 5px;
+  text-align: center;
+  width: 100%;
+}
+
+.dot {
+  display: inline;
+  margin: 0px 10px;
+}
+
+.dot svg {
+  width: 1em;
+  height: 1em;
+
+  @media #{$mobile_device} {
+    width: 2em;
+    height: 2em;
+  }
+
+  @media #{$tablet_device} {
+    width: 2em;
+    height: 2em;
+  }
+}
+
+.dot circle {
+  fill: #444;
+  stroke: white;
+  stroke-width: 0.5px;
+  opacity: 0.75;
+
+  &:hover {
+    opacity: 1;
+    fill: #333;
+  }
+
+  &:active,
+  &.current-dot {
+    fill: white;
+    stroke: #444;
+  }
+}
+
+.current-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.timer {
+  height: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 0%;
+
+  -webkit-transition: width 1s ease-in-out;
+  -moz-transition: width 1s ease-in-out;
+  -o-transition: width 1s ease-in-out;
+  transition: width 1s ease-in-out;
+}
