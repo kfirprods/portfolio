@@ -3,13 +3,15 @@
   <section>
     <div class="page main-info" fxLayout="column" fxLayoutAlign="center center">
       <div class="main-info-content" fxLayout="column" fxLayoutAlign="center center">
+        <img class="profile-photo" src="assets/img/profile-photo.jpg">
+
         <h1>Kfir Eichenblat</h1>
         <ul>
           <li>
-            <h3>Full-Stack Software Developer</h3>
+            <h3>Full Stack Engineer</h3>
           </li>
           <li>
-            <h3>UX enthusiast</h3>
+            <h3>UX/UI enthusiast</h3>
           </li>
         </ul>
       </div>
@@ -24,7 +26,7 @@
       </div>
 
       <div class="experience-cards-container" fxLayout="row" fxLayoutAlign="top space-around" fxLayoutGap="30px"
-           fxLayout.lt-lg="column">
+        fxLayout.lt-lg="column">
         <div class="card" fxFlex="50">
           <div class="card-image">
             <img src="assets/img/certificate.svg" />
@@ -33,7 +35,7 @@
             Professional Experience
           </div>
           <div class="card-content">
-            5 years of professional experience, working on large projects with small teams, using:
+            5 years of professional experience, working on enormous projects with small teams, using:
             <ul>
               <li>
                 C#, WPF
@@ -45,7 +47,7 @@
                     Hundreds of hours spent profiling CPU and memory
                   </li>
                   <li>
-                    Countless of multi-use user controls written
+                    Countless of multi-use components written
                   </li>
                 </ul>
               </li>
@@ -83,7 +85,7 @@
             Self Taught
           </div>
           <div class="card-content">
-            I have used many languages and frameworks over the past 9 years. Here's some of them:
+            I have used many languages and frameworks over the past 10 years. Here's some of them:
 
             <ul>
               <li>
@@ -147,34 +149,10 @@
         <span class="page-title">PORTFOLIO</span>
       </div>
 
-      <div class="portfolio-cards-container" fxLayout="row" fxLayoutAlign="top space-around"
-           fxLayout.lt-lg="column" fxLayoutAlign.lt-lg="center center">
-        <div class="card" fxFlex.gt-md="50">
-          <div class="card-image">
-            <app-photo-slide [images]="['assets/img/sample-1.jpg', 'assets/img/sample-2.jpg', 'assets/img/sample-3.jpg']"></app-photo-slide>
-          </div>
-          <div class="card-title">
-            Doakes Helper
-          </div>
-          <div class="card-content">
-            <p>
-              So far, this is my proudest after-hours project. It has accumulated more than 25,000 unique users over the lifespan of 4+
-              years.
-              To this date, this desktop serves as a companion app for many GTA SA-MP players.
-            </p>
-            <p>
-              Users have donated over $300 to support the project, submitted bug reports and even uploaded YouTube videos
-              that showcase or explain it.
-            </p>
-          </div>
-          <div class="card-tags">
-            <ul>
-              <li>Windows Desktop App</li>
-              <li>C#</li>
-              <li>WPF</li>
-              <li>Full Stack</li>
-            </ul>
-          </div>
+      <div class="portfolio-cards-container" fxLayout="row" fxLayoutAlign="top space-around" fxLayout.lt-lg="column"
+        fxLayoutAlign.lt-lg="center center">
+        <div *ngFor="let project of projects" fxFlex.gt-md="50">
+          <app-project [project]="project"></app-project>
         </div>
       </div>
     </div>

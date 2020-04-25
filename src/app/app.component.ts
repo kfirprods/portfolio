@@ -1,3 +1,4 @@
+import { ProjectsService } from './services/projects.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  aa: string[];
+  projects;
 
-  constructor() { }
+  constructor(private projectsService: ProjectsService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.projects = await this.projectsService.getProjects();
   }
-
 }
