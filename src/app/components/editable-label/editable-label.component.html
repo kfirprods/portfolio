@@ -1,0 +1,10 @@
+<div *ngIf="!isEditing">
+  <label>{{text}}</label>
+  <app-icon-button class="edit-button" *ngIf="allowEdits" icon="assets/img/pencil.svg" (click)="startEdit()"></app-icon-button>
+</div>
+
+<div class="editor-container" *ngIf="isEditing">
+  <input class="edit-input" type="text" [value]="editedText" (input)="editedText = $event.target.value">
+  <app-icon-button icon="assets/img/check.svg" (click)="applyEdit()"></app-icon-button>
+  <app-icon-button icon="assets/img/cancel.svg" (click)="cancelEdit()"></app-icon-button>
+</div>

@@ -3,11 +3,17 @@
     <app-photo-slide [images]="project.images"></app-photo-slide>
   </div>
   <div class="card-title">
-    {{project.title}}
+    <app-editable-label [text]="project.title" [allowEdits]="auth.loggedIn" (applyClicked)="updateTitle($event)"></app-editable-label>
+  </div>
+  <div class="card-subtitle">
+    {{project.releaseYear}}
   </div>
   <div class="card-content">
-    <p *ngFor="let paragraph of project.paragraphs">
-      {{paragraph}}
+    <p *ngFor="let paragraph of project.paragraphs; let paragraphIndex = index">
+      <app-editable-label [text]="paragraph" [allowEdits]="auth.loggedIn" (applyClicked)="updateParagraph(paragraphIndex, $event)"></app-editable-label>
+    </p>
+    <p *ngIf="auth.loggedIn">
+      <app-editable-label text="New paragraph" [allowEdits]="auth.loggedIn" (applyClicked)="addParagraph($event)"></app-editable-label>
     </p>
   </div>
   <div class="card-tags">

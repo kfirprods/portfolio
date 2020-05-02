@@ -3,8 +3,6 @@
   <section>
     <div class="page main-info" fxLayout="column" fxLayoutAlign="center center">
       <div class="main-info-content" fxLayout="column" fxLayoutAlign="center center">
-        <img class="profile-photo" src="assets/img/profile-photo.jpg">
-
         <h1>Kfir Eichenblat</h1>
         <ul>
           <li>
@@ -127,14 +125,6 @@
                   </li>
                 </ul>
               </li>
-              <li>
-                Java for Android
-                <ul>
-                  <li>
-                    Basic apps written from scratch
-                  </li>
-                </ul>
-              </li>
             </ul>
           </div>
         </div>
@@ -149,9 +139,8 @@
         <span class="page-title">PORTFOLIO</span>
       </div>
 
-      <div class="portfolio-cards-container" fxLayout="row" fxLayoutAlign="top space-around" fxLayout.lt-lg="column"
-        fxLayoutAlign.lt-lg="center center">
-        <div *ngFor="let project of projects" fxFlex.gt-md="50">
+      <div class="portfolio-cards-container">
+        <div *ngFor="let project of projects" class="project-card-container">
           <app-project [project]="project"></app-project>
         </div>
       </div>

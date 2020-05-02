@@ -1,0 +1,27 @@
+<div>
+  <h1>
+    Login
+  </h1>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <p>
+      <label>
+        Username:
+      </label>
+      <input type="text" formControlName="username" required>
+    </p>
+    <p>
+      <label>
+        Password:
+      </label>
+
+      <input type="password" formControlName="password">
+    </p>
+    <p>
+      <button type="submit" [disabled]="!form.valid">Submit</button>
+    </p>
+    <p>
+      {{message}}
+    </p>
+  </form>
+</div>

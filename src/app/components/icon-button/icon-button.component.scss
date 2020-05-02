@@ -1,0 +1,11 @@
+.icon-button {
+  padding: 3px;
+
+  &:hover {
+    background-color: #dadada;
+  }
+
+  &:active {
+    background-color: #bababa;
+  }
+}
