@@ -4,6 +4,8 @@
   </div>
   <div class="card-title">
     <app-editable-label [text]="project.title" [allowEdits]="auth.loggedIn" (applyClicked)="updateTitle($event)"></app-editable-label>
+    <app-icon-button *ngIf="auth.loggedIn && project.priority > 1" icon="assets/img/up.svg" (click)="increasePriority()"></app-icon-button>
+    <app-icon-button *ngIf="auth.loggedIn && project.priority < maxPriority" icon="assets/img/down.svg" (click)="decreasePriority()"></app-icon-button>
   </div>
   <div class="card-subtitle">
     {{project.releaseYear}}
@@ -17,10 +19,6 @@
     </p>
   </div>
   <div class="card-tags">
-    <ul>
-      <li *ngFor="let tag of project.tags">
-        {{tag}}
-      </li>
-    </ul>
+    <app-editable-tags [tags]="project.tags" [allowEdits]="auth.loggedIn"></app-editable-tags>
   </div>
 </div>

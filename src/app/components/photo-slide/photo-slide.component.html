@@ -1,13 +1,12 @@
 <div class="container">
   <img class="current-image" [src]="currentImage">
 
-  <div class="dots-container">
+  <div class="dots-container" *ngIf="images.length > 1">
     <div class="dot" *ngFor="let image of images">
-      <svg (click)="changeCurrentImage(image)" viewBox="0 0 8 8">
-        <circle [ngClass]="currentImage === image ? 'current-dot' : ''" cx="4" cy="4" r="3" />
-      </svg>
+      <div (click)="changeCurrentImage(image)" [ngClass]="currentImage === image ? 'current-dot circle' : 'circle'">
+      </div>
     </div>
   </div>
 
-  <div class="timer" [@photoLoaded]="{value: isLoadingNextImage ? 'start' : 'end', params: {duration: interval}}" (@photoLoaded.done)="reanimate($event)"></div>
+  <div class="timer" *ngIf="images.length > 1" [@photoLoaded]="{value: isLoadingNextImage ? 'start' : 'end', params: {duration: interval}}" (@photoLoaded.done)="reanimate($event)"></div>
 </div>

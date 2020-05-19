@@ -1,0 +1,124 @@
+$side-card-size: 80px;
+$current-card-size: 96px;
+
+li {
+  list-style: none;
+  float: left;
+}
+
+img {
+  transition: all 0.5s;
+}
+
+.container-grid {
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: [left] 1fr [center] 1fr [right] 1fr;
+  grid-auto-flow: dense;
+  gap: 1rem;
+}
+
+.out {
+  display: none;
+}
+
+.left, .right {
+  opacity: 0.6;
+}
+
+.left {
+  grid-column: left;
+  grid-row: 1;
+
+  animation-name: fade-away;
+  animation-duration: 0.5s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-away {
+  to {
+    opacity: 0;
+  }
+}
+
+.center {
+  grid-column: center;
+  grid-row: 1;
+
+  opacity: 1;
+  animation-name: move-away;
+  // TODO: Use non-const times
+  animation-duration: 0.5s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes move-away {
+  to {
+    opacity: 0.6;
+    transform: translateX(-100%);
+  }
+}
+
+.right {
+  grid-column: right;
+  grid-row: 1;
+
+  animation-name: move-to-center;
+  animation-duration: 0.5s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes move-to-center {
+  to {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+}
+
+.next {
+  grid-column: right;
+  grid-row: 1;
+  position: relative;
+  left: 100%;
+  opacity: 0.6;
+  animation-name: move-in;
+  animation-duration: 0.5s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes move-in {
+  to {
+    left: 0;
+  }
+}
+
+.next img, .left img, .right img {
+  width: $side-card-size;
+  height: $side-card-size;
+}
+
+.center img {
+  width: $current-card-size;
+  height: $current-card-size;
+
+  // TODO: Use non-const values
+  // transform: translate(-8px, -8px);
+
+  animation-name: shrink;
+  // TODO: Use non-const times
+  animation-duration: 0.5s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes shrink {
+  to {
+    transform: translate(0, 0);
+    width: $side-card-size;
+    height: $side-card-size;
+  }
+}

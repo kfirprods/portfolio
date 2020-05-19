@@ -1,5 +1,7 @@
+@import "theme-colors.scss";
 @import "scss/responsive";
 @import "scss/cards";
+
 
 .container {
   direction: ltr;
@@ -31,36 +33,21 @@
   border-radius: 50%;
   width: 128px;
   height: 128px;
-  border: 3px solid white;
+  border: 3px solid $highlighted-foreground;
 }
 
 .main-info {
   position: relative;
   font-family: 'Roboto', sans-serif;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-image: url("../assets/img/background-large.jpg");
-    background-size: cover;
-    filter: brightness(0.4);
-
-    @media #{$mobile_device} {
-      background-image: url("../assets/img/background-phone-landscape.jpg");
-    }
-
-    @media #{$tablet_device} {
-      background-image: url("../assets/img/background-tablet.jpg");
-    }
-  }
+  background: $dark-background;
 
   h1 {
-    font-weight: 700;
+    font-weight: 400;
+  }
+
+  h2 {
+    margin: 0;
+    font-weight: 400;
   }
 
   h3 {
@@ -68,23 +55,53 @@
     font-weight: 400;
   }
 
-  ul {
-    padding-inline-start: 10px;
+  strong {
+    color: $highlighted-foreground;
   }
-}
-
-.main-info ul {
-  list-style-type: '— ';
 }
 
 .main-info-content {
   color: white;
-  filter: none;
+  width: 100%;
+
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  justify-content: center;
 }
 
 .main-info-content h1 {
+  text-align: center;
+  margin: 0;
+
   @media #{$large_device} {
     font-size: 2em;
+  }
+}
+
+.main-info-content h2 {
+  font-family: Consolas;
+  text-align: left;
+  margin: 0 1rem;
+
+  @media #{$large_device} {
+    text-align: center;
+    margin: 0;
+  }
+}
+
+.photo-with-name-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+  justify-content: center;
+  margin: 1rem;
+
+  img {
+    margin-right: 1rem;
   }
 }
 
@@ -97,8 +114,11 @@
   color: #2c2c2c;
 }
 
-.experience .experience-cards-container {
-  margin: 30px 30px 0px 30px;
+.experience-cards-container {
+  margin: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
 }
 
 .portfolio {

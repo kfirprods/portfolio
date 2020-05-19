@@ -1,6 +1,6 @@
 import { ProjectsService } from './../../services/projects.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Project } from 'portfolio-types/models/project';
 
 @Component({
@@ -11,6 +11,12 @@ import { Project } from 'portfolio-types/models/project';
 export class ProjectComponent implements OnInit {
   @Input()
   project: Project;
+
+  @Input()
+  maxPriority: number;
+
+  @Output()
+  projectPriorityChanged = new EventEmitter<{project: Project, oldPriority: number}>();
 
   constructor(public auth: AuthenticationService, private projectsService: ProjectsService) { }
 
@@ -39,5 +45,19 @@ export class ProjectComponent implements OnInit {
 
     this.project.paragraphs.push(paragraph);
     this.projectsService.updateProject(this.project);
+  }
+
+  increasePriority(): void {
+    const oldPriority = this.project.priority;
+    this.project.priority -= 1;
+
+    this.projectPriorityChanged.emit({project: this.project, oldPriority});
+  }
+
+  decreasePriority(): void {
+    const oldPriority = this.project.priority;
+    this.project.priority += 1;
+
+    this.projectPriorityChanged.emit({project: this.project, oldPriority});
   }
 }

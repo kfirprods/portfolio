@@ -15,6 +15,10 @@ import { ProjectComponent } from './components/project/project.component';
 import { LoginComponent } from './components/login-component/login.component';
 import { IconButtonComponent } from './components/icon-button/icon-button.component';
 import { EditableLabelComponent } from './components/editable-label/editable-label.component';
+import { TagsEditorComponent } from './tags-editor/tags-editor.component';
+import { EditableTagsComponent } from './editable-tags/editable-tags.component';
+import { TypewriterComponent } from './components/typewriter/typewriter.component';
+import { HorizontalPhotoStackComponent } from './components/horizontal-photo-stack/horizontal-photo-stack.component';
 
 export function jwtTokenGetter() {
   return localStorage.getItem('access_token');
@@ -28,7 +32,11 @@ export function jwtTokenGetter() {
     ProjectComponent,
     LoginComponent,
     IconButtonComponent,
-    EditableLabelComponent
+    EditableLabelComponent,
+    TagsEditorComponent,
+    EditableTagsComponent,
+    TypewriterComponent,
+    HorizontalPhotoStackComponent
   ],
   imports: [
     CommonModule,

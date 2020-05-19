@@ -1,17 +1,31 @@
 <div class="container">
   <!-- Main -->
   <section>
-    <div class="page main-info" fxLayout="column" fxLayoutAlign="center center">
-      <div class="main-info-content" fxLayout="column" fxLayoutAlign="center center">
-        <h1>Kfir Eichenblat</h1>
-        <ul>
-          <li>
-            <h3>Full Stack Engineer</h3>
-          </li>
-          <li>
-            <h3>UX/UI enthusiast</h3>
-          </li>
-        </ul>
+    <div class="page main-info">
+      <div class="main-info-content">
+        <div class="title">
+          <div class="photo-with-name-container">
+            <img class="profile-photo" src="assets/img/profile-photo.jpg">
+
+            <div>
+              <h1>
+                Kfir Eichenblat
+              </h1>
+              <h3>
+                Full Stack Engineer
+              </h3>
+            </div>
+          </div>
+          <h2>
+            <app-typewriter [texts]="profileTexts" caretColor="white"></app-typewriter>
+          </h2>
+        </div>
+        <div class="technologies">
+          <app-horizontal-photo-stack
+            [interval]="1500"
+            [photos]="['assets/img/tech/html.svg', 'assets/img/tech/js.svg', 'assets/img/tech/css.svg', 'assets/img/tech/angular.svg', 'assets/img/tech/nodejs.svg', 'assets/img/tech/csharp.svg', 'assets/img/tech/python.svg']">
+          </app-horizontal-photo-stack>
+        </div>
       </div>
     </div>
   </section>
@@ -23,9 +37,8 @@
         <span class="page-title">EXPERIENCE</span>
       </div>
 
-      <div class="experience-cards-container" fxLayout="row" fxLayoutAlign="top space-around" fxLayoutGap="30px"
-        fxLayout.lt-lg="column">
-        <div class="card" fxFlex="50">
+      <div class="experience-cards-container">
+        <div class="card">
           <div class="card-image">
             <img src="assets/img/certificate.svg" />
           </div>
@@ -33,7 +46,7 @@
             Professional Experience
           </div>
           <div class="card-content">
-            5 years of professional experience, working on enormous projects with small teams, using:
+            5 years of professional experience, working on large scale projects with small teams, using:
             <ul>
               <li>
                 C#, WPF
@@ -75,7 +88,7 @@
           </div>
         </div>
 
-        <div class="card" fxFlex="50">
+        <div class="card">
           <div class="card-image">
             <img src="assets/img/open-book.svg" />
           </div>
@@ -90,9 +103,6 @@
                 Angular
                 <ul>
                   <li>
-                    1 year of recent experience
-                  </li>
-                  <li>
                     Plenty of HTML and CSS
                   </li>
                   <li>
@@ -104,10 +114,10 @@
                 NodeJS
                 <ul>
                   <li>
-                    1 year of recent experience
+                    Dozens of REST API endpoints with Express
                   </li>
                   <li>
-                    Dozens of REST API endpoints
+                    JWT and session based authentications
                   </li>
                 </ul>
               </li>
@@ -115,13 +125,13 @@
                 PHP, ASP.NET and MSSQL
                 <ul>
                   <li>
-                    Commercial freelance web development
+                    1 commercial freelance web development
                   </li>
                   <li>
                     High school projects
                   </li>
                   <li>
-                    Freeware / sites that showcase my freeware
+                    Freeware and sites that showcase my freeware
                   </li>
                 </ul>
               </li>
@@ -141,7 +151,8 @@
 
       <div class="portfolio-cards-container">
         <div *ngFor="let project of projects" class="project-card-container">
-          <app-project [project]="project"></app-project>
+          <app-project [project]="project" [maxPriority]="projects.length"
+            (projectPriorityChanged)="onProjectPriorityChanged($event)"></app-project>
         </div>
       </div>
     </div>

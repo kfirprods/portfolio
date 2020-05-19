@@ -1,0 +1,11 @@
+<span *ngIf="!isEditing">
+  <ul>
+    <li *ngFor="let tag of tags">
+      {{tag}}
+    </li>
+  </ul>
+
+  <app-icon-button *ngIf="allowEdits" icon="assets/img/pencil.svg" (click)="editTags()"></app-icon-button>
+</span>
+
+<app-editable-label *ngIf="isEditing" [allowEdits]="allowEdits" [text]="tags.join(', ')" (applyClicked)="applyTags()">

@@ -1,0 +1,14 @@
+@import "../../theme-colors.scss";
+
+.type-span {
+  color: $light-foreground;
+}
+
+.cursor-span {
+  color: opacify($color: $light-foreground, $amount: 0.2);
+}
+
+.highlighted {
+  font-weight: bold;
+  color: $highlighted-foreground;
+}

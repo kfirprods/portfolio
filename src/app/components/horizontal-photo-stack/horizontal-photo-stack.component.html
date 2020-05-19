@@ -1,0 +1,5 @@
+<div class="container-grid">
+  <div *ngFor="let photo of photos; let i = index" [ngClass]="classes[i]">
+    <img [src]="photo">
+  </div>
+</div>
